@@ -50,11 +50,12 @@ def ex2_2_3_4(continual_negative_residual_load):
     longest_negative_series = max(negative_groups, key=len)
 
     continual_negative_residual_loadCount = highDemand(continual_negative_residual_load["negative mask"])
-    print("The number of times the demand was higher than the generation was: ", continual_negative_residual_loadCount)
+    print("The number of times the generation was higher than the demand was: ", continual_negative_residual_loadCount)
     print("The longest series of negative residual load was: ", len(longest_negative_series))
     energyCurtailedTWh = str(np.sum(longest_negative_series) * 10 ** -6)
     print("The energy curtailed was: " + energyCurtailedTWh + " TW")
     plt.boxplot(negative_groups.apply(len))
+    plt.ylabel("Length of negative residual load series")
     plt.show()
 
 # Press the green button in the gutter to run the script.
